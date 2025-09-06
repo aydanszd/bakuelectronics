@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon"
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCy13P7pp6wjIB0BLtx_2NA0W3wJpqhSizQQ&s">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <script defer src="../app.js/basic.js"></script>
+    <script defer src="../app.js/login.js"></script>
+</head>
+
+<body class="bg-white text-gray-900">
+
+    <header class="w-full absolute top-0 left-0 w-full z-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex justify-end">
+            <nav class="hidden md:flex gap-6  text-[11px] text-black font-bold mt-5">
+                <a href="#" class="hover:text-gray-900">Ana səhifə</a>
+                <a href="#" class="hover:text-gray-900">Çatdırılma və ödəniş</a>
+                <a href="#" class="hover:text-gray-900">Nisyə alış</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="min-h-[calc(100vh-4rem)] ">
+        <div class="grid grid-cols-1 xl:grid-cols-2">
+
+            <section class="relative  text-white h-screen bg-gray-700 ">
+                <img src="https://img.b-e.az/media/search-banner-image/sznadm.jpg" alt="Hero"
+                    class="absolute inset-0 w-full h-full object-cover opacity-70 " />
+                <div class="absolute inset-0 w-full h-full object-cover"></div>
+
+                <div class="relative max-w-3xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
+                    <div class="flex items-start gap-3 ml-[-30px]">
+                        <img class="mt-[-54px]" src="https://new.bakuelectronics.az/img/auth-logo.png" alt="">
+                    </div>
+
+                    <h1 class="mt-[540px] text-[40px] md:text-3xl lg:text-4xl font-semibold flex ml-[-32px]">
+                        <span class="shadow-black-md leading-snug">Arxayın al! Məhsulun dəyişdirmə və geri qaytarma
+                            müddəti 30 günə uzandı.</span>
+                    </h1>
+
+                    <a href="#"
+                        class="inline-flex items-start gap-2 bg-white hover:bg-[#e1e1e1] transition rounded-[12px] px-[20px] py-[12px] text-[14px] font-semibold mt-[50px] ml-[-30px]">
+                        <span class="text-black">Ətraflı bax</span>
+                    </a>
+
+                </div>
+            </section>
+
+            <section class="relative flex items-start xl:items-center justify-center py-12 bg-[#f5f5f5]">
+                <div class="w-full max-w-md mx-auto px-6">
+                    <div class="bg-white shadow-xs rounded-2xl p-6 h-[438px] w-[422px]">
+
+                        <h2 class="text-[32px] font-bold text-center mb-[36px] mt-1">Daxil ol</h2>
+
+                        <div class="relative mb-7">
+                            <input id="email" type="text" placeholder="E-poçt"
+                                class="w-full rounded-[16px] border border-black pl-3 pr-11 py-3 outline-none focus:border-gray-400 focus:ring-2 focus:ring-gray-200 transition" />
+                            <i
+                                class="ri-mail-line absolute right-5 top-1/2 -translate-y-1/2 text-[#EA2427] text-[18px]"></i>
+                        </div>
+
+                        <div class="relative mb-3">
+                            <input id="password" type="password" placeholder="Şifrə"
+                                class="w-full rounded-[16px] border border-black pl-3 pr-11 py-3 outline-none focus:border-gray-400 focus:ring-2 focus:ring-gray-200 transition" />
+                            <button type="button"
+                                class="absolute right-5 top-1/2 -translate-y-1/2 text-[#EA2427] hover:text-gray-700">
+                                <i class="ri-eye-line text-[18px]"></i>
+                            </button>
+                        </div>
+
+                        <div class="text-right mb-6 mt-6">
+                            <a href="#" class="text-[12px] text-black hover:text-gray-900 underline">Şifrəni
+                                unutmusan?</a>
+                        </div>
+
+                        <button id="loginBtn"
+                            class="w-full rounded-xl bg-[#333333] text-white py-[10px] font-semibold hover:bg-gray-900 active:scale-[.99] transition">
+                            Daxil ol
+                        </button>
+
+                        <p class="mt-7 text-center text-sm text-black font-medium">
+                            Hesabınız yoxdur?
+                            <a href="#" class="font-medium text-black underline">Qeydiyyatdan keçin</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <a href="#"
+        class="fixed right-4 bottom-4 h-[62px] w-[62px] rounded-full shadow-lg flex items-center justify-center bg-[#EA2427] text-white font-bold mb-6 mr-5">
+        <i class="ri-chat-4-line text-3xl"></i>
+    </a>
+</body>
+</html>

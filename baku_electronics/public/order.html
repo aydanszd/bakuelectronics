@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+    <link rel="icon"
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCy13P7pp6wjIB0BLtx_2NA0W3wJpqhSizQQ&s">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <script defer src="../app.js/order.js"></script>
+    <script defer src="../app.js/index.js"></script>
+</head>
+
+<body class="bg-white  mx-auto min-h-screen flex flex-col ">
+
+    <header class="w-full max-w-[1270px] mx-auto">
+        <div class="hidden md:block border-b bg-[#f5f5f5] text-sm max-w-[1240px] mx-auto rounded-[21px] py-[3px]">
+            <div class="container mx-auto max-w-screen-xl px-4">
+                <div class="grid grid-cols-12 items-center py-2">
+                    <nav
+                        class="col-span-12 flex flex-wrap gap-8 font-roboto text-[14px] font-medium text-gray-500 ml-[10px]">
+                        <a href="#" class="hover:text-black">Kampaniyalar</a>
+                        <a href="#" class="hover:text-black">Korporativ satışlar</a>
+                        <a href="#" class="hover:text-black">Mağazalar</a>
+                        <a href="#" class="hover:text-black">Aylıq ödəniş</a>
+                        <a href="#" class="hover:text-black">Aktiv müqavilələr</a>
+                        <a href="#" class="hover:text-black flex items-center gap-1">
+                            Digər <i class="ri-arrow-down-s-line"></i>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="container px-4 mt-[2px]">
+            <div class="grid grid-cols-12 items-center py-4 gap-4">
+
+                <div class="col-span-6 md:col-span-3 flex items-center gap-4">
+                    <a href="#">
+                        <img src="https://img.b-e.az/media/logo/baku-electronics-logo_QJeQcxF.svg"
+                            alt="Baku Electronics Logo" class="h-[50px] w-[50px] rounded-full object-cover">
+                    </a>
+                    <button
+                        class="hidden md:flex px-[21px] py-[10px] bg-[#333333] text-white rounded-full items-center gap-2 hover:bg-gray-700">
+                        <i class="ri-apps-2-line text-[20px]"></i>
+                        <span class="text-[16px] font-bold">Kataloq</span>
+                    </button>
+                </div>
+
+                <div class="hidden md:block col-span-6 w-[798px] mx-auto ml-[-100px] ">
+                    <div class="relative"> <input type="text" placeholder="Məhsul axtarin..."
+                            class="w-full rounded-[10px] pl-4 pr-12 py-[12px] focus:outline-none focus:ring-red-500 bg-[#f5f5f5] " />
+                        <span
+                            class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-black text-xl cursor-pointer">
+                            <i class="ri-search-line text-[22px]"></i> </span> </div>
+                </div>
+                <div class="col-span-6 md:col-span-3 flex justify-end items-center gap-4 text-gray-600 text-2xl">
+                    <button class="md:hidden" id="menu-btn">
+                        <i class="ri-menu-line"></i>
+                    </button>
+
+                    <div class="hidden md:flex items-center gap-3">
+                        <button
+                            class="w-11 h-11 flex rounded-[9px] items-center justify-center bg-[#f5f5f5] text-black hover:bg-gray-200">
+                            <i class="ri-robot-2-line text-[20px] font-medium"></i>
+                        </button>
+                        <button
+                            class="w-11 h-11 flex items-center justify-center rounded-[9px] bg-[#f5f5f5] text-black hover:bg-gray-200">
+                            <i class="ri-shopping-cart-line text-[20px] font-medium"></i>
+                        </button>
+                        <button
+                            class="w-11 h-11 flex items-center justify-center rounded-[9px] bg-[#f5f5f5] text-black hover:bg-gray-200">
+                            <i class="ri-heart-line text-[20px] font-medium"></i>
+                        </button>
+                        <button
+                            class="w-11 h-11 flex items-center justify-center rounded-[9px] bg-[#f5f5f5] text-black hover:bg-gray-200">
+                            <i class="ri-user-line text-[20px] font-medium"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="md:hidden hidden flex-col bg-gray-50 border-t px-6 py-4 space-y-4">
+            <a href="#" class="block hover:text-red-600">Kampaniyalar</a>
+            <a href="#" class="block hover:text-red-600">Korporativ satışlar</a>
+            <a href="#" class="block hover:text-red-600">Mağazalar</a>
+            <a href="#" class="block hover:text-red-600">Aylıq ödəniş</a>
+            <a href="#" class="block hover:text-red-600">Aktiv müqavilələr</a>
+            <a href="#" class="block hover:text-red-600">Digər</a>
+            <hr>
+            <div class="flex items-center gap-6 text-gray-700 text-lg">
+                <button><i class="ri-shopping-cart-line"></i></button>
+                <button><i class="ri-heart-line"></i></button>
+                <button><i class="ri-user-line"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1">
+        <div class="overflow-x-auto hidden max-w-3xl mx-auto" id="cartTableWrapper">
+            <table id="cartTbody" class="w-full bg-white shadow-md rounded-lg border border-gray-200">
+                <thead>
+                    <tr class="border-b">
+                        <th class="px-6 py-4 text-left text-gray-600 font-medium">Product Name</th>
+                        <th class="px-6 py-4 text-left text-gray-600 font-medium">Unit Price</th>
+                        <th class="px-6 py-4 text-left text-gray-600 font-medium">Qty</th>
+                        <th class="px-6 py-4 text-left text-gray-600 font-medium">Total</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTbody">
+                </tbody>
+            </table>
+        </div>
+        <section id="emptyCart" class="mx-auto max-w-3xl px-4 py-16 text-center">
+            <div class="flex flex-col items-center justify-center">
+                <div
+                    class="mb-4 flex h-[120px] w-[120px] mt-[70px] items-center justify-center rounded-full bg-red-100 text-red-600">
+                    <i class="ri-error-warning-line text-6xl"></i>
+                </div>
+                <h2 class="text-[18px] font-semibold mb-2">Sizin hal-hazırda səbətdə məhsulunuz yoxdur.</h2>
+                <p class="text-[12px] text-gray-400 font-semibold">
+                    Məhsullara baxmaq üçün ana səhifəyə keçid edə bilərsiniz.
+                </p>
+                <a href="#"
+                    class="mt-4 inline-flex items-center rounded-[15px] bg-[#EA2427] px-[32px] py-[13px] text-[11px] font-semibold text-white hover:bg-red-700">
+                    Ana səhifə
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#f5f5f5] border-t mt-10">
+        <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
+
+            <div>
+                <h2 class="text-lg font-semibold mb-3">Yeniliklərdən xəbərdar ol</h2>
+                <form class="flex gap-2 mr-5">
+                    <input type="email" placeholder="Email daxil edin"
+                        class="w-full px-[18px] py-[11px] border border-gray-300 rounded-xl ">
+                    <button type="submit" class="bg-red-600 text-white px-[8px] rounded-xl hover:bg-red-700">Abunə
+                    </button>
+                </form>
+            </div>
+
+            <div>
+                <h2 class="text-lg font-semibold mb-3">Aksiyalar</h2>
+                <ul class="space-y-1 text-gray-500">
+                    <li><a href="#" class="hover:text-red-600">Nəyi alaq</a></li>
+                    <li><a href="#" class="hover:text-red-600">Mağazalar</a></li>
+                    <li><a href="#" class="hover:text-red-600">Servis mərkəzləri</a></li>
+                    <li><a href="#" class="hover:text-red-600">Çatdırılma və ödəniş</a></li>
+                    <li><a href="#" class="hover:text-red-600">Avropa İT</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h2 class="text-lg font-semibold mb-3">Məlumat</h2>
+                <ul class="space-y-1 text-gray-500">
+                    <li><a href="#" class="hover:text-red-600">Kompaniyalar</a></li>
+                    <li><a href="#" class="hover:text-red-600">Müştərilər</a></li>
+                    <li><a href="#" class="hover:text-red-600">Brendlər</a></li>
+                    <li><a href="#" class="hover:text-red-600">Bizə suallar</a></li>
+                    <li><a href="#" class="hover:text-red-600">Zəmanət</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h2 class="text-lg font-semibold mb-3">Hesabımda</h2>
+                <ul class="space-y-1 text-gray-500">
+                    <li><a href="#" class="hover:text-red-600">Hesabımda</a></li>
+                    <li><a href="#" class="hover:text-red-600">Karyera portalı</a></li>
+                    <li><a href="#" class="hover:text-red-600">Korporativ satışlar</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="border-t py-6 px-6 flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto">
+
+            <div class="flex space-x-4 mb-4 md:mb-0 ">
+                <a href="#" class="text-gray-400 hover:text-red-600"><i class="ri-facebook-fill text-xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-red-600"><i class="ri-instagram-line text-xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-red-600"><i class="ri-linkedin-fill text-xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-red-600"><i class="ri-youtube-fill text-xl"></i></a>
+            </div>
+
+            <div class="text-gray-700 font-medium text-3xl mr-[500px]"><i class="ri-phone-line text-3xl"></i>143</div>
+
+            <div class="flex space-x-3 mt-4 md:mt-0">
+                <a href="#"><img src="https://new.bakuelectronics.az/img/google-play-light.svg" alt="Google Play"
+                        class="h-10"></a>
+                <a href="#"><img src="https://new.bakuelectronics.az/img/app-store-light.svg" alt="App Store"
+                        class="h-10"></a>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>
