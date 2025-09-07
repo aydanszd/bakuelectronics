@@ -1,4 +1,17 @@
 document.addEventListener("DOMContentLoaded", async () => {
+    const loader = document.createElement("div");
+    loader.id = "loader";
+    loader.className = "fixed inset-0 flex flex-col items-center justify-center bg-white z-50 transition-opacity duration-500";
+    loader.innerHTML = `
+        <div class="w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full animate-spin"></div>
+        <p class="mt-4 text-gray-600 font-medium">Yüklənir...</p>
+    `;
+    document.body.appendChild(loader);
+
+    setTimeout(() => {
+        loader.style.opacity = "0"; 
+        setTimeout(() => loader.remove(), 500); 
+    }, 1000); 
     try {
         const res = await fetch("http://localhost:3000/cart");
         const serverCart = await res.json();
@@ -13,6 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const cartTooltip = document.getElementById("cartTooltip");
     const cartCount = document.getElementById("cartCount");
     const cartList = document.getElementById("cartList");
+    const toTopBtn = document.getElementById("toTopBtn");
 
     function updateCart() {
         cartCount.textContent = cart.length;
@@ -58,10 +72,13 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
 
-        const card = btn.closest(".relative");//closest=>ilk relative tapir
+        const card = btn.closest(".relative");
         const name = card.querySelector("h3").textContent;
-        const image = card.querySelector("img") ? card.querySelector("img").src : "";
-        const price = parseFloat(card.querySelector(".flex.justify-between.font-semibold.text-gray-900 span")?.textContent.replace("₼", "").trim()) || 100;//10'luq  say sistemine kecirdir
+        const image = card.querySelector("img")?.src || "";
+        const price = parseFloat(
+            card.querySelector(".flex.justify-between.font-semibold.text-gray-900 span")?.textContent.replace("₼", "").trim()
+        ) || 100;
+
         const exist = cart.find(p => p.name === name);
         if (exist) {
             exist.quantity += 1;
@@ -72,7 +89,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             try {
                 await fetch("http://localhost:3000/cart", {
                     method: "POST",
-                    headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(newItem)
                 });
                 console.log("Serverə əlavə edildi:", newItem);
@@ -97,28 +113,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     cartTooltip.addEventListener("mouseleave", () => cartTooltip.classList.add("hidden"));
 
     updateCart();
-});
-document.addEventListener("DOMContentLoaded", function () {
-    const loader = document.createElement("div");
-    loader.id = "loader";
-    loader.className = "fixed inset-0 flex flex-col items-center justify-center bg-white z-50 transition-opacity duration-500";
 
-    loader.innerHTML = `
-        <div class="w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full animate-spin"></div>
-        <p class="mt-4 text-gray-600 font-medium">Yüklənir...</p>
-    `;
-    document.body.appendChild(loader);
-    setTimeout(function () {
-        loader.style.opacity = "0"; 
-        setTimeout(() => {
-            loader.remove(); 
-        }, 500); 
-    }, 1000);
+    window.addEventListener("scroll", () => 
+        toTopBtn.classList.toggle("hidden", window.scrollY <= 300)
+    );
+    toTopBtn.addEventListener("click", () => 
+        window.scrollTo({ top: 0, behavior: "smooth" })
+    );
 });
-const toTopBtn = document.getElementById("toTopBtn");
-window.addEventListener("scroll", () => 
-    toTopBtn.classList.toggle("hidden", window.scrollY <= 300)
-);
-toTopBtn.addEventListener("click", () => 
-    window.scrollTo({ top: 0, behavior: "smooth" })
-);

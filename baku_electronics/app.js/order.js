@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // LocalStorage=>cart
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
     const saveCart = () => {
         localStorage.setItem("cart", JSON.stringify(cart));
     };

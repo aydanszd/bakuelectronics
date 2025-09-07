@@ -65,3 +65,23 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const passwordInput = document.getElementById("password");
+    const toggleBtn = document.getElementById("togglePassword");
+    const toggleIcon = document.getElementById("toggleIcon");
+
+    if (passwordInput && toggleBtn && toggleIcon) {
+        toggleBtn.addEventListener("click", () => {
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleIcon.classList.remove("ri-eye-off-line");
+                toggleIcon.classList.add("ri-eye-line");
+            } else {
+                passwordInput.type = "password";
+                toggleIcon.classList.remove("ri-eye-line");
+                toggleIcon.classList.add("ri-eye-off-line");
+            }
+        });
+    }
+});
+

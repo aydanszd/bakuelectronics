@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (profileImage && uploadInput) {
         profileImage.addEventListener("click", () => uploadInput.click());
-        uploadInput.addEventListener("change", (e) => {
-            const file = uploadInput.files[0]; 
+        uploadInput.addEventListener("change", (e) => {//input type file
+            const file = uploadInput.files[0];//bir nece file secilse 1
             if (file) {
                 const reader = new FileReader();
-                reader.onload = () => urlInput.value = reader.result;
+                reader.onload = () => urlInput.value = reader.result;//file=>input
                 reader.readAsDataURL(file);
             }
         });
