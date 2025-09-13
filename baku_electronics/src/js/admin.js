@@ -39,43 +39,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let editId = null; //unikal ID saxlayir
 
-if (submitBtn) {
-    submitBtn.addEventListener("click", async (e) => {
-        e.preventDefault();
-        if (!nameInput.value || !urlInput.value || !priceInput.value)
-            return alert("Xanaları doldurun!");
+    if (submitBtn) {
+        submitBtn.addEventListener("click", async (e) => {
+            e.preventDefault();
+            if (!nameInput.value || !urlInput.value || !priceInput.value)
+                return alert("Xanaları doldurun!");
 
-        const productData = {
-            name: nameInput.value,
-            url: urlInput.value,
-            price: parseFloat(priceInput.value)
-        };
+            const productData = {
+                name: nameInput.value,
+                url: urlInput.value,
+                price: parseFloat(priceInput.value)
+            };
 
-        if (editId) {
-            // məhsulu update
-            await fetch(`http://localhost:3000/product/${editId}`, {
-                method: "PUT",
-                body: JSON.stringify(productData)
-            });
-            editId = null;
-            submitBtn.textContent = "Məhsul əlavə et";
-        } else {
-            // Yeni mehsul 
-            await fetch("http://localhost:3000/product", {
-                method: "POST",
-                body: JSON.stringify(productData)
-            });
-        }
+            if (editId) {
+                // məhsulu update
+                await fetch(`http://localhost:3000/product/${editId}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(productData)
+                });
+                editId = null;
+                submitBtn.textContent = "Məhsul əlavə et";
+            } else {
+                // Yeni məhsul
+                await fetch("http://localhost:3000/product", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(productData)
+                });
+            }
 
-        nameInput.value = "";
-        urlInput.value = "";
-        priceInput.value = "";
 
-        // Admin,index update
-        loadAdminProducts();
-        loadIndexProducts();
+            nameInput.value = "";
+            urlInput.value = "";
+            priceInput.value = "";
+
+            // Admin,index update
+            loadAdminProducts();
+            loadIndexProducts();
         });
-}
+    }
 
     if (cleanBtn) {
         cleanBtn.addEventListener("click", (e) => {

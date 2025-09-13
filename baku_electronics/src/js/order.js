@@ -1,17 +1,13 @@
-
 document.addEventListener("DOMContentLoaded", () => {
     //CART
     const cartTbody = document.getElementById("cartTbody");
     const cartTableWrapper = document.getElementById("cartTableWrapper");
     const emptyCart = document.getElementById("emptyCart");
     const checkoutBtn = document.getElementById("checkoutBtn");
-
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     const saveCart = () => localStorage.setItem("cart", JSON.stringify(cart));
-
     const renderCart = () => {
         if (!cartTbody) return; // Cart səhifəsi yoxdursa çıx
-
         cartTbody.innerHTML = "";
         if (cart.length === 0) {
             cartTableWrapper.classList.add("hidden");
