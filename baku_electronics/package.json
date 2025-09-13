@@ -4,7 +4,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "json-server --watch ./db/db.json --port 3000"
+    "server": "json-server --watch ./src/./db/db.json --port 3000"
   },
   "keywords": [],
   "author": "",
@@ -12,5 +12,8 @@
   "devDependencies": {
     "json-server": "1.0.0-beta.3"
   },
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "server": "^1.0.42"
+  }
 }

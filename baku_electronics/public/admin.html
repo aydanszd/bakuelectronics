@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="icon"
         href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCy13P7pp6wjIB0BLtx_2NA0W3wJpqhSizQQ&s">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,8 +16,8 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Satisfy&family=Story+Script&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../all.css">
-    <script defer src="../app.js/admin.js"></script>
-    <script defer src="../app.js/index.js"></script>
+    <script defer src="../src/js/admin.js"></script>
+    <script defer src="../src/js/index.js"></script>
 
 </head>
 
@@ -26,8 +28,7 @@
             <div class="flex flex-col items-center justify-center py-10 px-5 lg:flex-row max-w-7xl mx-auto gap-10">
                 <div class="relative w-96 h-96 lg:w-[600px] lg:h-[600px]">
                     <img id="profileImage" src="../img/admin.jpg"
-                        class="w-full h-full object-cover rounded-full border-4 border-[#EA2427] shadow-2xl cursor-pointer"
-                        />
+                        class="w-full h-full object-cover rounded-full border-4 border-[#EA2427] shadow-2xl cursor-pointer" />
                     <input id="upload" type="file" class="hidden" accept="image/*" />
                 </div>
 
@@ -69,7 +70,6 @@
                             </div>
                         </div>
                     </div>
-
                     <svg viewbox="0 0 91 91" class="absolute top-0 left-0 z-0 w-32 h-32 -mt-12 -ml-12 text-[#EA2427]
             fill-current">
                         <g stroke="none" strokewidth="1" fillrule="evenodd">
@@ -263,9 +263,14 @@
                                 <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900">Şəkil</th>
                                 <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900">Ad</th>
                                 <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900">Qiymət</th>
+                                <th class="px-6 py-3 text-center text-sm font-semibold text-gray-900">Edit</th>
+                                <th class="px-6 py-3 text-center text-sm font-semibold text-gray-900">Delete</th>
                             </tr>
                         </thead>
                         <tbody id="adminProductTable"></tbody>
+                    </table>
+
+                    <tbody id="adminProductTable"></tbody>
                     </table>
                 </div>
             </div>

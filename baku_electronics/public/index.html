@@ -12,11 +12,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script defer src="../app.js/basic.js"></script>
-    <script defer src="../app.js/index.js"></script>
-    <script defer src="../app.js/login.js"></script>
-    <script defer src="../app.js/order.js"></script>
-    <script defer src="../app.js/admin.js"></script>
+    <script defer src="../src/js/basic.js"></script>
+    <script type="module" defer src="../src/js/index.js"></script>
+    <script defer src="../src/js/login.js"></script>
+    <script defer src="../src/js/order.js"></script>
+    <script defer src="../src/js/admin.js"></script>
+    <script defer src="../src/js/checkout.js"></script>
 </head>
 
 <body class="bg-white max-w-[1270px] mx-auto">
@@ -123,7 +124,39 @@
                             class="w-11 h-11 flex items-center justify-center rounded-[9px] bg-gray-100 text-black hover:bg-gray-200">
                             <i id="userIcon" class="ri-user-line text-[20px] font-medium"></i>
                         </button>
-                        <span id="welcomeText" class="text-sm font-medium text-black hidden"></span>
+                        <script>
+                            document.addEventListener("DOMContentLoaded", () => {
+                                const userBtn = document.getElementById("userBtn");
+                                const userIcon = document.getElementById("userIcon");
+
+                                function updateUI(user) {
+                                    if (!userIcon) return;
+                                    if (user) {
+                                        userIcon.className = "ri-user-shared-2-line text-[20px] font-medium";
+                                    } else {
+                                        userIcon.className = "ri-user-line text-[20px] font-medium";
+                                    }
+                                }
+                                const currentUser = JSON.parse(localStorage.getItem("user"));
+                                updateUI(currentUser);
+
+                                if (userBtn) {
+                                    userBtn.addEventListener("click", () => {
+                                        const user = JSON.parse(localStorage.getItem("user"));
+                                        if (user) {
+                                            localStorage.removeItem("user");
+                                            updateUI(null);
+                                            alert("Çıxış etdiniz!");
+                                        } else {
+                                            alert("Əvvəlcə login olun!");
+                                            window.location.href = "login.html";
+                                        }
+                                    });
+                                }
+                            });
+                        </script>
+                        <script>
+                        </script>
                     </div>
 
                 </div>

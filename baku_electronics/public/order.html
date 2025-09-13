@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +10,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
-    <script defer src="../app.js/order.js"></script>
-    <script defer src="../app.js/index.js"></script>
+    <script defer src="../src/js/order.js"></script>
+    <script defer src="../src/js/index.js"></script>
+    <script defer src="../src/js/checkout.js"></script>
 </head>
 
 <body class="bg-white  mx-auto min-h-screen flex flex-col ">
@@ -54,7 +56,8 @@
                             class="w-full rounded-[10px] pl-4 pr-12 py-[12px] focus:outline-none focus:ring-red-500 bg-[#f5f5f5] " />
                         <span
                             class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-black text-xl cursor-pointer">
-                            <i class="ri-search-line text-[22px]"></i> </span> </div>
+                            <i class="ri-search-line text-[22px]"></i> </span>
+                    </div>
                 </div>
                 <div class="col-span-6 md:col-span-3 flex justify-end items-center gap-4 text-gray-600 text-2xl">
                     <button class="md:hidden" id="menu-btn">
@@ -98,38 +101,48 @@
             </div>
         </div>
     </header>
+    <main class="flex-1 max-w-5xl mx-auto mt-10">
 
-    <main class="flex-1">
-        <div class="overflow-x-auto hidden max-w-3xl mx-auto" id="cartTableWrapper">
-            <table id="cartTbody" class="w-full bg-white shadow-md rounded-lg border border-gray-200">
-                <thead>
-                    <tr class="border-b">
-                        <th class="px-6 py-4 text-left text-gray-600 font-medium">Product Name</th>
-                        <th class="px-6 py-4 text-left text-gray-600 font-medium">Unit Price</th>
-                        <th class="px-6 py-4 text-left text-gray-600 font-medium">Qty</th>
-                        <th class="px-6 py-4 text-left text-gray-600 font-medium">Total</th>
-                    </tr>
-                </thead>
-                <tbody id="orderTbody">
-                </tbody>
-            </table>
+        <div class="flex gap-4 border-b mb-6">
+            <button id="cartTab" class="px-4 py-2 font-medium border-b-2 border-red-600 text-red-600">
+                Səbət
+            </button>
+            <button id="ordersTab" class="px-4 py-2 font-medium text-gray-600 hover:text-red-600">
+                Sifarişlər
+            </button>
         </div>
-        <section id="emptyCart" class="mx-auto max-w-3xl px-4 py-16 text-center">
-            <div class="flex flex-col items-center justify-center">
-                <div
-                    class="mb-4 flex h-[120px] w-[120px] mt-[70px] items-center justify-center rounded-full bg-red-100 text-red-600">
-                    <i class="ri-error-warning-line text-6xl"></i>
-                </div>
-                <h2 class="text-[18px] font-semibold mb-2">Sizin hal-hazırda səbətdə məhsulunuz yoxdur.</h2>
-                <p class="text-[12px] text-gray-400 font-semibold">
-                    Məhsullara baxmaq üçün ana səhifəyə keçid edə bilərsiniz.
-                </p>
-                <a href="#"
-                    class="mt-4 inline-flex items-center rounded-[15px] bg-[#EA2427] px-[32px] py-[13px] text-[11px] font-semibold text-white hover:bg-red-700">
-                    Ana səhifə
-                </a>
+
+        <div id="cartSection">
+            <div id="emptyCart" class="hidden text-center py-16">
+                <p class="text-gray-600">Səbətiniz boşdur.</p>
             </div>
-        </section>
+            <div id="cartTableWrapper" class="overflow-x-auto hidden">
+                <table class="w-full bg-white shadow-md rounded-lg border border-gray-200">
+                    <thead>
+                        <tr class="border-b">
+                            <th class="px-6 py-4 text-left text-gray-600 font-medium">Product Name</th>
+                            <th class="px-6 py-4 text-left text-gray-600 font-medium">Unit Price</th>
+                            <th class="px-6 py-4 text-left text-gray-600 font-medium">Qty</th>
+                            <th class="px-6 py-4 text-left text-gray-600 font-medium">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cartTbody"></tbody>
+                </table>
+
+                <div class="text-right mt-4">
+                    <button id="checkoutBtn" class="px-6 py-2 bg-red-600 text-white rounded hover:bg-red-700">
+                        Checkout
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="ordersSection" class="hidden space-y-4">
+            <div id="orders-container"></div>
+            
+        </div>
+        <form id="checkoutForm"> ... </form>
+
+
     </main>
 
     <footer class="bg-[#f5f5f5] border-t mt-10">
